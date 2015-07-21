@@ -5,4 +5,4 @@ I used code from here: dotnetperls.com/word-search and modified it to account fo
 
 The solution then outputs to text from the web, or if replying to an SMS (via twilio) it returns the first 1600 characters worth of solution
 
-Enjoy
+See Demo: http://wordbubblesolver.azurewebsites.net
