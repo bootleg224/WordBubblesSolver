@@ -39,7 +39,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -104,24 +117,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="App\ImageExtensions.cs" />
+    <Compile Include="App\TrainingData.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\enable1.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\Dictionary\enable1.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -130,6 +139,21 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\TrainingData\1c3afa29-9905-427e-aea9-6014373f239a.json" />
+    <Content Include="App_Data\TrainingData\1cf28f36-36a8-41be-90a9-949cf093509c.json" />
+    <Content Include="App_Data\TrainingData\233b7409-1360-412a-a3f2-0e957eac856a.json" />
+    <Content Include="App_Data\TrainingData\2f85ae8f-c39c-424f-a521-6992fc4f5a63.json" />
+    <Content Include="App_Data\TrainingData\5ce0191a-934f-41e6-8508-0acc80f7dd67.json" />
+    <Content Include="App_Data\TrainingData\66ea0bfb-236e-4bc5-8a2b-543fbe9b5b61.json" />
+    <Content Include="App_Data\TrainingData\747502de-4eea-46b1-b7f7-57494d7f7e91.json" />
+    <Content Include="App_Data\TrainingData\8018b6a9-9c33-4c4f-aa54-0ee5030df2fb.json" />
+    <Content Include="App_Data\TrainingData\818c12f6-9744-4d15-ab76-81ccd81db5a9.json" />
+    <Content Include="App_Data\TrainingData\9a19bc4d-4430-4669-b451-129047de4f17.json" />
+    <Content Include="App_Data\TrainingData\b7632546-02be-4899-aa89-9413017a1d56.json" />
+    <Content Include="App_Data\TrainingData\bb6f7a01-0039-42e5-b2f3-b9e22d93eb31.json" />
+    <Content Include="App_Data\TrainingData\c706c7ce-8932-48ce-a576-832e08b46705.json" />
+    <Content Include="App_Data\TrainingData\dd177e65-ccaa-49cd-a389-c6f2425b4f1b.json" />
+    <Content Include="App_Data\TrainingData\fd55a5db-723a-43c8-9912-e7ec39afb623.json" />
     <None Include="Properties\PublishProfiles\wordbubblesolver.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -156,6 +180,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Training\Index.cshtml" />
+    <Content Include="Views\Training\Process.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

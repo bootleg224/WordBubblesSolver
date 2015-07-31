@@ -1,0 +1,25 @@
+﻿@model WordBubblesSolver.Web.App.TrainingDataItem[]
+
+
+<h2>Verify Letters</h2>
+<form action="/Training/Save" method="POST">
+    @for (int i = 0; i < Model.Length; i++)
+    {
+        <div class="row">
+            <div class="form-group">
+                <img src="data:image/png;base64,@Model[i].Base64Image" />
+                @Html.HiddenFor(c => c[i].Base64Image)
+                @Html.TextBoxFor(c=> c[i].Letter, new {maxlength = 1})
+            </div>
+        </div>
+
+    }
+    
+    <input type="submit"/>
+</form>
+
+<style>
+    textarea {
+        font-size: 1px;
+    }
+</style>

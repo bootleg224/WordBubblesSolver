@@ -1,24 +1,47 @@
-﻿@{
+﻿@model WordBubblesSolver.Web.Controllers.PuzzleModel
+@{
     ViewBag.Title = "Home Page";
 }
 
 
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">            
-            <textarea id="data" name="data" class="form-control" rows="6" cols="6" placeholder="Enter Puzzle, use _ or space character to denote blank spaces."></textarea>
-            <div class="form-group">
+    <div class="col-xs-12">
+        <form method="post" enctype="multipart/form-data">
+           
+            <div class="col-xs-6">
+                <input type="file" name="file" id="file" /><br />
+                <textarea id="Data" name="Data" class="form-control" rows="6" cols="6" placeholder="Upload screenshot above or Enter Puzzle here, use _ or space character to denote blank spaces.">@Model.Data</textarea>
+                
+                <br/>
+                
+                @foreach (var solution in Model.Solutions)
+                {
+                    foreach (var s in solution)
+                    {
+                        @(s.Length.ToString("00") + ": ") @s <br />
+                    }
+                    <hr />
+                }
+
+            </div>
+
+            <div class="col-xs-6">
+                @if (Model.Base64Image != null)
+                {
+                    <img style="width:auto; height:300px;" src="data:image/png;base64,@Model.Base64Image" />    <br/><br/>
+                }   
+                
+                <input type="submit" />             
+            </div>
+                       
+            @*<div class="form-group">
                 <label for="smallest">Smallest Word</label>
-                <input type="number" class="form-control" id="smallest" name="smallest" placeholder="3"/>
+                <input type="number" class="form-control" id="Smallest" name="Smallest" placeholder="3" value="@Model.Smallest" />
             </div>
             <div class="form-group">
                 <label for="largest">Largest Word</label>
-                <input type="number" class="form-control" id="largest" name="largest" placeholder="6" />
-            </div>
-            <input type="submit"/>
-        </form>
-        
-        
-        
-    </div>
-    </div>
+                <input type="number" class="form-control" id="Largest" name="Largest" placeholder="6" value="@Model.Largest" />
+            </div>*@            
+        </form>                        
+    </div>        
+</div>
